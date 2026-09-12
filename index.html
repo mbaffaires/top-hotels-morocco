@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maroc Voyages — Réservez le Maroc, du riad au désert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Desktop-only utility bar -->
+  <div class="topbar desktop-only">
+    <span>Lun – Ven 9h00 – 18h30 · Sam 9h30 – 18h30</span>
+    <div class="topbar-right"><span>FR / EN</span><span>MAD</span><span class="topbar-phone">+212 5 24 00 08 03</span></div>
+  </div>
+
+  <!-- Sticky header -->
+  <header class="header">
+    <div class="header-row header-row-mobile">
+      <button class="icon-btn" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <span class="brand">Maroc Voyages</span>
+      <div class="lang-btn">FR</div>
+    </div>
+    <div class="header-row header-row-desktop desktop-only">
+      <div class="brand-group"><span class="brand">Maroc Voyages</span><span class="brand-tag">MAROC UNIQUEMENT</span></div>
+      <div class="header-right">
+        <span class="header-phone">+212 5 24 00 08 03</span>
+        <div class="btn-pill" id="reserveBtn">Réserver</div>
+      </div>
+    </div>
+    <nav class="nav-panel" id="navPanel" hidden>
+      <div class="nav-list" id="navList"></div>
+      <div class="nav-phone-row">
+        <span class="nav-phone">+212 5 24 00 08 03</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-top">
+      <div class="hero-text">
+        <div class="badge">
+          <span class="dot"></span>TAXE DE SÉJOUR INCLUSE
+        </div>
+        <h1 class="h1">Réservez le Maroc,<br><span class="accent">du riad au désert.</span></h1>
+        <p class="lead">Hôtels, riads et logements dans tout le royaume, circuits et activités opérés par nos équipes locales. Prix membres, paiement en deux fois, conseillers joignables sur WhatsApp.</p>
+        <div class="hero-checks desktop-only"><span>✓ 640 établissements</span><span>✓ 12 villes</span><span>✓ Annulation gratuite</span></div>
+      </div>
+
+      <div class="hero-media">
+        <img class="ph" src="assets/photos/hero.jpg" alt="Dunes du Sahara au lever du soleil, Erg Chebbi" loading="eager">
+        <div class="sheen"></div>
+      </div>
+    </div>
+
+    <div class="search-card">
+      <div class="tabs" id="searchTabs">
+        <div class="tab" data-tab="hotel">Hôtels</div>
+        <div class="tab" data-tab="stay">Logements</div>
+        <div class="tab" data-tab="trip">Voyages</div>
+      </div>
+      <div class="search-grid">
+        <div class="search-fields" id="searchFields"></div>
+        <div class="btn-primary search-btn">Rechercher</div>
+      </div>
+    </div>
+
+    <div class="quick-row">
+      <span class="quick-label desktop-only">Recherches fréquentes :</span>
+      <div class="quick-scroll" id="quickScroll"></div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>SEPTEMBRE −35%</span><span class="dia">◆</span><span>ALL INCLUSIVE SAÏDIA −30%</span><span class="dia">◆</span><span>DÉSERT DÈS 1 490 DHS</span><span class="dia">◆</span><span>PAIEMENT EN 2 FOIS</span><span class="dia">◆</span>
+      <span>SEPTEMBRE −35%</span><span class="dia">◆</span><span>ALL INCLUSIVE SAÏDIA −30%</span><span class="dia">◆</span><span>DÉSERT DÈS 1 490 DHS</span><span class="dia">◆</span><span>PAIEMENT EN 2 FOIS</span><span class="dia">◆</span>
+    </div>
+  </div>
+
+  <!-- Par où commencer -->
+  <section class="section">
+    <div class="intro-grid">
+      <div>
+        <div class="kicker">PAR OÙ COMMENCER</div>
+        <h2 class="h2">Choisissez,<br>on s'occupe du reste.</h2>
+      </div>
+      <p class="body-text">Quatre questions, deux minutes. Un conseiller vous rappelle avec une sélection réelle.</p>
+    </div>
+    <div class="menu-list" id="menuList"></div>
+  </section>
+
+  <!-- Offres du moment -->
+  <section class="section section--flush">
+    <div class="section-head">
+      <h2 class="h2 h2--tight">Offres du moment</h2>
+      <span class="arrow-mono">→</span>
+    </div>
+    <div class="hscroll" id="offersScroll"></div>
+  </section>
+
+  <!-- Hôtels au Maroc -->
+  <section class="section section--flush">
+    <div class="section-head section-head--col">
+      <h2 class="h2 h2--tight">Hôtels au Maroc</h2>
+      <span class="sub-mono">Prix par nuit, taxe incluse</span>
+    </div>
+    <div class="hotel-list" id="hotelList"></div>
+  </section>
+
+  <!-- Logements entiers -->
+  <section class="section section--flush">
+    <div class="section-head section-head--col">
+      <h2 class="h2 h2--tight">Logements entiers</h2>
+      <span class="sub-mono">Riads, villas et appartements vérifiés</span>
+    </div>
+    <div class="hscroll" id="staysScroll"></div>
+  </section>
+
+  <!-- Voyages organisés -->
+  <section class="section section--flush">
+    <div class="section-head section-head--col">
+      <h2 class="h2 h2--tight">Voyages organisés</h2>
+    </div>
+    <div class="trip-list" id="tripList"></div>
+  </section>
+
+  <!-- Activités à la journée -->
+  <section class="section section--flush">
+    <div class="section-head section-head--col">
+      <h2 class="h2 h2--tight">Activités à la journée</h2>
+    </div>
+    <div class="hscroll hscroll--tight" id="actsScroll"></div>
+  </section>
+
+  <!-- Atlas+ -->
+  <section class="atlas">
+    <div class="atlas-inner">
+      <div class="atlas-grid">
+        <div class="atlas-text">
+          <div class="kicker">PROGRAMME ATLAS+</div>
+          <h2 class="h2">Plus vous voyagez,<br>plus vous récupérez.</h2>
+          <p class="body-text">Chaque réservation crédite votre compte en dirhams, utilisables sur le séjour suivant.</p>
+        </div>
+        <div class="perks-grid" id="perksGrid"></div>
+        <div class="btn-primary" id="atlasCta">Créer un compte Atlas+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vos prochaines vacances -->
+  <section class="section section--flush">
+    <div class="section-head section-head--col">
+      <h2 class="h2 h2--tight">Vos prochaines vacances</h2>
+    </div>
+    <div class="theme-grid" id="themeGrid"></div>
+  </section>
+
+  <!-- Destinations + Conseil + Newsletter -->
+  <section class="section">
+    <div class="dest-advice-grid">
+      <div>
+        <div class="kicker kicker--muted">DESTINATIONS</div>
+        <div class="dest-pills" id="destPills"></div>
+      </div>
+      <div class="desktop-only">
+        <div class="kicker kicker--muted">BESOIN D'UN CONSEIL ?</div>
+        <p class="body-text">Un conseiller basé à Marrakech répond du lundi au samedi. Devis groupe, entreprise et mariage sur demande.</p>
+        <div class="advice-actions">
+          <span class="btn-pill btn-pill--wa" id="adviceWa">WhatsApp</span>
+          <span class="btn-pill btn-pill--outline">+212 5 24 00 08 03</span>
+        </div>
+      </div>
+    </div>
+    <div class="newsletter-grid">
+      <div>
+        <h2 class="h2 h2--news">Recevez nos offres jusqu'à −30%</h2>
+        <p class="body-text body-text--tight">Une lettre par semaine, uniquement des séjours au Maroc.</p>
+      </div>
+      <div class="newsletter">
+        <div class="input-fake">votre@email.ma</div>
+        <div class="btn-primary">S'abonner</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-brand">Maroc Voyages</div>
+          <p class="footer-desc">Agence de voyages accréditée, spécialisée exclusivement sur les séjours au Maroc.<br>Rue Mohammed El Beqal, Guéliz, Marrakech 40000</p>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <div class="footer-label">RÉSERVER</div>
+            <div class="footer-links">
+              <span>Hôtels</span><span>Riads &amp; logements</span><span>Voyages organisés</span><span>Activités</span>
+            </div>
+          </div>
+          <div>
+            <div class="footer-label">AIDE</div>
+            <div class="footer-links">
+              <span>Ma réservation</span><span>Paiement en 2 fois</span><span>FAQ</span><span>Nous contacter</span>
+            </div>
+          </div>
+          <div class="footer-atlas desktop-only">
+            <div class="footer-label">ATLAS+</div>
+            <p class="footer-desc">Cashback en dirhams sur chaque réservation.</p>
+            <span class="btn-pill btn-pill--accent" id="footerJoin">Rejoindre</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Maroc Voyages · Licence A-1042</span>
+        <span class="desktop-only">Conditions générales · Confidentialité</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fixed bottom bar (mobile only) -->
+  <div class="bottom-bar-wrap">
+    <div class="bottom-bar">
+      <div class="btn-primary bottom-cta" id="bottomCta">Composer mon séjour</div>
+      <div class="wa-btn" id="waBtn">WA</div>
+    </div>
+  </div>
+
+  <!-- Quiz sheet -->
+  <div class="sheet-overlay" id="sheetOverlay" hidden>
+    <div class="sheet">
+      <div class="sheet-top">
+        <div class="sheet-handle-row"><span class="sheet-handle"></span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="sheet-header">
+          <div>
+            <div class="sheet-kicker" id="quizKicker"></div>
+            <div class="sheet-steplabel" id="stepLabel"></div>
+          </div>
+          <button class="sheet-close" id="sheetClose" aria-label="Fermer">×</button>
+        </div>
+      </div>
+      <div class="sheet-body" id="sheetBody"></div>
+      <div class="sheet-footer">
+        <div class="sheet-back" id="sheetBack"></div>
+        <div class="sheet-counter" id="sheetCounter"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
