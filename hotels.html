@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tous les hôtels — Maroc Voyages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="page hotels-page">
+
+  <!-- Sticky header -->
+  <header class="header">
+    <div class="header-row">
+      <span class="brand">Maroc Voyages</span>
+      <div class="lang-btn">FR</div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="badge">
+      <span class="dot"></span>80 HÔTELS · 13 VILLES
+    </div>
+    <h1 class="h1">Tous les hôtels,<br><span class="accent">ville par ville.</span></h1>
+    <p class="lead">Comparez nos hôtels partenaires dans tout le royaume, triés par ville ou par nombre d'étoiles.</p>
+
+    <div class="hero-media">
+      <img class="ph" src="assets/photos/hero.jpg" alt="Dunes du Sahara au lever du soleil, Erg Chebbi" loading="eager">
+      <div class="sheen"></div>
+    </div>
+
+    <div class="search-card">
+      <div class="search-grid">
+        <div class="search-fields">
+          <div class="field">
+            <div class="label">DESTINATION OU HÔTEL</div>
+            <input class="value search-input" id="searchInput" type="text" placeholder="Marrakech, Agadir, Fès…" autocomplete="off">
+          </div>
+          <div class="field">
+            <div class="label">DATES</div>
+            <div class="date-range">
+              <input class="value date-input" id="dateIn" type="date" aria-label="Date d'arrivée">
+              <input class="value date-input" id="dateOut" type="date" aria-label="Date de départ">
+            </div>
+          </div>
+          <div class="field">
+            <div class="label">VOYAGEURS</div>
+            <select class="value search-select" id="travelersSelect">
+              <option value="1-1">1 chambre, 1 personne</option>
+              <option value="1-2" selected>1 chambre, 2 personnes</option>
+              <option value="1-3">1 chambre, 3 personnes</option>
+              <option value="1-4">1 chambre, 4 personnes</option>
+              <option value="2-4">2 chambres, 4 personnes</option>
+              <option value="2-6">2 chambres, 6 personnes</option>
+              <option value="3-6">3 chambres, 6 personnes</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-primary search-btn" id="searchBtn">Rechercher</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>SEPTEMBRE −35%</span><span class="dia">◆</span><span>ALL INCLUSIVE SAÏDIA −30%</span><span class="dia">◆</span><span>DÉSERT DÈS 1 490 DHS</span><span class="dia">◆</span><span>PAIEMENT EN 2 FOIS</span><span class="dia">◆</span>
+      <span>SEPTEMBRE −35%</span><span class="dia">◆</span><span>ALL INCLUSIVE SAÏDIA −30%</span><span class="dia">◆</span><span>DÉSERT DÈS 1 490 DHS</span><span class="dia">◆</span><span>PAIEMENT EN 2 FOIS</span><span class="dia">◆</span>
+    </div>
+  </div>
+
+  <!-- Hotels -->
+  <section class="section section--flush">
+    <div class="section-head section-head--col">
+      <h2 class="h2 h2--tight">Hôtels au Maroc</h2>
+      <span class="sub-mono" id="hotelsCount"></span>
+    </div>
+
+    <div class="sort-row">
+      <div class="sort-toggle" id="sortToggle">
+        <div class="sort-btn active" data-sort="city">Par ville</div>
+        <div class="sort-btn" data-sort="stars">Par étoiles</div>
+      </div>
+    </div>
+
+    <div id="hotelsContainer"></div>
+  </section>
+
+  <!-- Price calendar modal -->
+  <div class="cal-overlay" id="calOverlay" hidden>
+    <div class="cal-modal">
+      <div class="cal-modal-top">
+        <div class="cal-handle-row"><span class="cal-handle"></span></div>
+        <div class="cal-header">
+          <div>
+            <div class="cal-hotel-name" id="calHotelName"></div>
+            <div class="cal-hotel-sub" id="calHotelSub"></div>
+          </div>
+          <button class="sheet-close" id="calClose" aria-label="Fermer">×</button>
+        </div>
+        <div class="cal-legend">
+          <span><i class="cal-dot low"></i>Bas</span>
+          <span><i class="cal-dot mid"></i>Normal</span>
+          <span><i class="cal-dot high"></i>Haut</span>
+        </div>
+        <div class="cal-hint">Touchez une date pour réserver via WhatsApp</div>
+      </div>
+      <div class="cal-body" id="calBody"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="./hotels.js"></script>
+</body>
+</html>

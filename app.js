@@ -391,7 +391,7 @@
       });
       $('submitWhatsapp').addEventListener('click', () => {
         const text = encodeURIComponent(`Bonjour, je souhaite : ${summary.join(' / ')}`);
-        window.open(`https://wa.me/212524000803?text=${text}`, '_blank', 'noopener');
+        window.open(`https://wa.me/212777010882?text=${text}`, '_blank', 'noopener');
       });
     }
   }
@@ -448,7 +448,7 @@
       if (e.target.id === 'sheetOverlay') closeQuiz();
     });
 
-    const openWhatsapp = () => window.open('https://wa.me/212524000803', '_blank', 'noopener');
+    const openWhatsapp = () => window.open('https://wa.me/212777010882', '_blank', 'noopener');
     $('waBtn').addEventListener('click', openWhatsapp);
     $('adviceWa').addEventListener('click', openWhatsapp);
   }

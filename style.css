@@ -387,6 +387,24 @@ a:hover { color: var(--orange); }
 .hotel-card .price-row { display: flex; align-items: baseline; gap: 5px; }
 .hotel-card .price { font: 600 17px 'Bricolage Grotesque', sans-serif; }
 .hotel-card .unit { font: 400 10px 'IBM Plex Mono', monospace; color: rgba(16, 32, 28, .62); }
+.hotel-actions { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.hotel-cta {
+  font: 600 11.5px 'Instrument Sans', sans-serif;
+  color: var(--green);
+  cursor: pointer;
+}
+.hotel-cta:hover { color: var(--orange); }
+.hotel-book {
+  font: 600 11.5px 'Instrument Sans', sans-serif;
+  color: var(--whatsapp-ink);
+  background: var(--whatsapp);
+  border-radius: 999px;
+  padding: 7px 12px;
+  text-align: center;
+  cursor: pointer;
+  width: fit-content;
+}
+.hotel-book:hover { filter: brightness(1.05); }
 
 /* ---------- stays ---------- */
 .stay-card {
@@ -498,6 +516,42 @@ a:hover { color: var(--orange); }
   font: 400 13.5px 'Instrument Sans', sans-serif;
   color: rgba(16, 32, 28, .6);
 }
+
+/* ---------- hotels catalog page ---------- */
+.back-link {
+  font: 500 13px 'Instrument Sans', sans-serif;
+  color: var(--green);
+  white-space: nowrap;
+}
+.sort-row { padding: 0 16px 16px; }
+.sort-toggle {
+  display: flex;
+  gap: 6px;
+  border: 1px solid rgba(16, 32, 28, .12);
+  border-radius: 999px;
+  padding: 4px;
+}
+.sort-btn {
+  flex: 1;
+  text-align: center;
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: 600 12.5px 'Instrument Sans', sans-serif;
+  color: rgba(16, 32, 28, .6);
+}
+.sort-btn.active { background: var(--green); color: #fff; }
+.city-group { margin-bottom: 28px; }
+.city-group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 16px 10px;
+}
+.city-group-title { font: 500 20px 'Bricolage Grotesque', sans-serif; margin: 0; letter-spacing: -.02em; }
+.city-group-count { font: 400 11px 'IBM Plex Mono', monospace; color: rgba(16, 32, 28, .5); }
+.back-footer { text-align: center; padding: 28px 16px 40px; }
+.back-footer a { font: 500 13px 'Instrument Sans', sans-serif; color: rgba(16, 32, 28, .55); }
 
 /* ---------- footer ---------- */
 .footer { margin-top: 28px; background: var(--footer-bg); color: #fff; padding: 28px 16px 22px; }
@@ -857,4 +911,147 @@ a:hover { color: var(--orange); }
     transform: translateY(-3px);
     box-shadow: 0 16px 28px -18px rgba(16, 32, 28, .4);
   }
+}
+
+/* ---------- hotels catalog: search input + no-results ---------- */
+.search-input {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  font: 400 13.5px 'Instrument Sans', sans-serif;
+  color: var(--ink);
+}
+.search-input::placeholder { color: rgba(16, 32, 28, .4); }
+.date-range { display: flex; flex-direction: column; gap: 4px; }
+.date-input {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;
+  font: 400 12.5px 'Instrument Sans', sans-serif;
+  color: var(--ink);
+}
+.search-select {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  font: 400 13px 'Instrument Sans', sans-serif;
+  color: var(--ink);
+  appearance: auto;
+  cursor: pointer;
+}
+.no-results {
+  padding: 32px 16px;
+  text-align: center;
+  font: 400 13.5px 'Instrument Sans', sans-serif;
+  color: rgba(16, 32, 28, .5);
+}
+
+/* ---------- price calendar modal ---------- */
+.cal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(16, 32, 28, .55);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.cal-overlay[hidden] { display: none; }
+.cal-modal {
+  width: 100%;
+  max-width: 430px;
+  max-height: 88vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 22px 22px 0 0;
+  animation: sheetup .28s cubic-bezier(.2, .8, .2, 1);
+}
+.cal-modal-top { position: sticky; top: 0; background: #fff; border-radius: 22px 22px 0 0; z-index: 2; border-bottom: 1px solid rgba(16, 32, 28, .08); }
+.cal-handle-row { display: flex; justify-content: center; padding: 10px 0 4px; }
+.cal-handle { width: 38px; height: 4px; border-radius: 2px; background: rgba(16, 32, 28, .16); }
+.cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 12px;
+}
+.cal-hotel-name { font: 500 17px 'Bricolage Grotesque', sans-serif; margin-bottom: 3px; }
+.cal-hotel-sub { font: 400 11.5px 'Instrument Sans', sans-serif; color: rgba(16, 32, 28, .6); }
+.cal-legend {
+  display: flex;
+  gap: 14px;
+  padding: 0 16px 12px;
+  font: 400 11px 'Instrument Sans', sans-serif;
+  color: rgba(16, 32, 28, .6);
+}
+.cal-legend span { display: flex; align-items: center; gap: 5px; }
+.cal-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.cal-dot.low { background: #2f9e5c; }
+.cal-dot.mid { background: rgba(16, 32, 28, .3); }
+.cal-dot.high { background: var(--orange-deep); }
+.cal-hint {
+  padding: 0 16px 12px;
+  font: 500 11px 'Instrument Sans', sans-serif;
+  color: var(--whatsapp-ink);
+}
+
+.cal-body { padding: 16px 16px 28px; }
+.cal-month { margin-bottom: 22px; }
+.cal-month-title { font: 500 15px 'Bricolage Grotesque', sans-serif; letter-spacing: -.01em; margin-bottom: 8px; }
+.cal-dow-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+.cal-dow-row span {
+  text-align: center;
+  font: 400 9.5px 'IBM Plex Mono', monospace;
+  color: rgba(16, 32, 28, .4);
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+.cal-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(16, 32, 28, .04);
+  gap: 1px;
+  cursor: pointer;
+  transition: box-shadow .12s, transform .12s;
+}
+.cal-cell:hover { box-shadow: 0 0 0 1.5px var(--whatsapp); transform: translateY(-1px); }
+.cal-cell.empty { background: transparent; cursor: default; }
+.cal-cell.empty:hover { box-shadow: none; transform: none; }
+.cal-cell .d { font: 400 8.5px 'Instrument Sans', sans-serif; opacity: .55; line-height: 1; }
+.cal-cell .p { font: 600 8.5px 'IBM Plex Mono', monospace; line-height: 1; }
+.cal-cell.low { background: rgba(47, 158, 92, .14); color: #1f7a48; }
+.cal-cell.high { background: rgba(169, 95, 19, .14); color: var(--orange-deep); }
+
+@media (min-width: 960px) {
+  .cal-overlay { align-items: center; padding: 20px; }
+  .cal-modal { max-width: 640px; border-radius: 20px; animation: modalIn .22s ease; }
+  .cal-modal-top { border-radius: 20px 20px 0 0; }
+  .cal-handle-row { display: none; }
+  .cal-header { padding: 18px 26px 12px; }
+  .cal-legend { padding: 0 26px 14px; }
+  .cal-body { padding: 22px 26px 30px; columns: 2; column-gap: 24px; }
+  .cal-month { break-inside: avoid; }
 }
